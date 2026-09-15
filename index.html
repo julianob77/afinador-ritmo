@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Afinador &amp; Ritmo</title>
+<meta name="theme-color" content="#14161c" />
+<meta name="description" content="Afinador e metrônomo com ritmos de acompanhamento e mostrador de nota em tempo real." />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <h1>Afinador <span class="dot">&amp;</span> Ritmo</h1>
+    <button id="btn-settings" class="icon-btn" aria-label="Ajustes" title="Ajustes">⚙</button>
+  </header>
+
+  <main class="main">
+
+    <!-- TUNER CARD -->
+    <section class="card tuner-card">
+      <div class="tuner-status" id="tuner-status">Toque em "Ativar microfone" para começar</div>
+
+      <div class="tuner-display">
+        <svg class="cents-meter" viewBox="0 0 300 170" id="cents-meter">
+          <path d="M20,150 A130,130 0 0,1 280,150" class="meter-arc" />
+          <g id="meter-ticks"></g>
+          <line id="meter-needle" x1="150" y1="150" x2="150" y2="30" class="meter-needle" />
+          <circle cx="150" cy="150" r="8" class="meter-pivot" />
+        </svg>
+
+        <div class="note-readout">
+          <span class="note-name" id="note-name">—</span>
+          <span class="note-octave" id="note-octave"></span>
+        </div>
+        <div class="freq-readout" id="freq-readout">0.0 Hz</div>
+      </div>
+
+      <button id="btn-mic" class="primary-btn">🎤 Ativar microfone</button>
+    </section>
+
+    <!-- RHYTHM / METRONOME CARD -->
+    <section class="card rhythm-card">
+      <div class="bpm-row">
+        <button id="btn-bpm-minus" class="round-btn" aria-label="Diminuir BPM">−</button>
+        <div class="bpm-display">
+          <span id="bpm-value">90</span>
+          <span class="bpm-label">BPM</span>
+        </div>
+        <button id="btn-bpm-plus" class="round-btn" aria-label="Aumentar BPM">+</button>
+      </div>
+
+      <input type="range" id="bpm-slider" min="30" max="300" value="90" class="bpm-slider" />
+
+      <div class="secondary-row">
+        <button id="btn-tap" class="chip-btn">Tap Tempo</button>
+        <select id="time-sig-select" class="chip-select" aria-label="Compasso"></select>
+      </div>
+
+      <div class="beat-indicator" id="beat-indicator"></div>
+
+      <div class="rhythm-select" id="rhythm-select"></div>
+
+      <div class="transport-row">
+        <button id="btn-play" class="primary-btn play-btn">▶ Tocar</button>
+        <div class="volume-wrap">
+          <label for="volume-slider">Vol.</label>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.8" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="settings-sheet" id="settings-sheet" hidden>
+    <div class="sheet-backdrop" id="sheet-backdrop"></div>
+    <div class="sheet-content">
+      <h2>Ajustes</h2>
+      <label class="setting-row">
+        <span>Referência A4 (Hz)</span>
+        <input type="number" id="a4-input" min="410" max="470" value="440" />
+      </label>
+      <label class="setting-row">
+        <span>Tema escuro</span>
+        <input type="checkbox" id="theme-toggle" checked />
+      </label>
+      <button id="btn-close-settings" class="primary-btn">Fechar</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/sound-bank.js"></script>
+<script src="js/rhythm-patterns.js"></script>
+<script src="js/metronome-engine.js"></script>
+<script src="js/pitch-detector.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
