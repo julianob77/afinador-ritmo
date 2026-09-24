@@ -381,3 +381,13 @@ a.icon-btn {
 .topbar .icon-btn { font-size: 1.1rem; padding: 6px 6px; }
 .topbar .install-btn { margin: 0 4px; padding: 6px 10px; font-size: 0.75rem; white-space: nowrap; }
 @media (max-width: 380px) { .topbar .marca { height: 28px; } .topbar .icon-btn { padding: 6px 4px; } }
+
+/* Celulares estreitos: topo sem transbordar */
+.topbar { gap: 8px; }
+.topbar h1 { flex-shrink: 0; }
+.topbar > div { flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
+html, body { overflow-x: hidden; }
+@media (max-width: 440px) { .topbar .install-txt { display: none; } .topbar .install-btn { padding: 6px 9px; font-size: 0.95rem; } .topbar .icon-btn { font-size: 1.05rem; padding: 6px 4px; } .topbar .marca { height: 30px; } }
+
+.rhythm-select { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rhythm-chip { overflow-wrap: normal; }
