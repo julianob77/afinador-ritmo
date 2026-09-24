@@ -96,7 +96,8 @@ const UI = (() => {
 
   function renderRhythmChips(list, activeId, onSelect) {
     el.rhythmSelect.innerHTML = list
-      .map((r) => `<button class="rhythm-chip${r.id === activeId ? " active" : ""}" data-id="${r.id}">${r.name}</button>`)
+      .map((r, i) => (r.group && r.group !== "Metrônomo" && r.group !== (list[i - 1] || {}).group ? `<div class="rhythm-group">${r.group}</div>` : "") +
+        `<button class="rhythm-chip${r.id === activeId ? " active" : ""}" data-id="${r.id}">${r.name}</button>`)
       .join("");
     el.rhythmSelect.querySelectorAll(".rhythm-chip").forEach((btn) => {
       btn.addEventListener("click", () => onSelect(btn.dataset.id));

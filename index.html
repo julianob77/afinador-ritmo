@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Afinador &amp; Ritmo</title>
-<meta name="theme-color" content="#14161c" />
-<meta name="description" content="Afinador e metrônomo com ritmos de acompanhamento e mostrador de nota em tempo real." />
+<title>Afinador Ponto Grave</title>
+<meta name="theme-color" content="#0E0C0A" />
+<meta name="description" content="Afinador para contrabaixo, metrônomo com ritmos de acompanhamento, escalas e pentatônicas. Da Ponto Grave." />
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="icons/icon-180.png" />
@@ -15,8 +15,15 @@
 <div class="app">
 
   <header class="topbar">
-    <h1>Afinador <span class="dot">&amp;</span> Ritmo</h1>
-    <button id="btn-settings" class="icon-btn" aria-label="Ajustes" title="Ajustes">⚙</button>
+    <h1><img src="icons/logo-fundo-escuro.svg" class="marca marca-escuro" alt="Ponto Grave"><img src="icons/logo-fundo-claro.svg" class="marca marca-claro" alt="Ponto Grave"><span class="app-nome">Afinador</span></h1>
+    <div>
+      <a href="escalas.html" class="icon-btn" aria-label="Escalas para contrabaixo" title="Escalas">🎼</a>
+      <a href="modos-gregos.html" class="icon-btn" aria-label="Modos gregos para contrabaixo" title="Modos gregos">🏛️</a>
+      <a href="pentatonicas.html" class="icon-btn" aria-label="Pentatônicas e blues para contrabaixo" title="Pentatônicas e blues">🎸</a>
+      <a href="campo-harmonico.html" class="icon-btn" aria-label="Escala e campo harmônico para imprimir" title="Campo harmônico (impressão)">🖨️</a>
+      <button id="btn-install" class="install-btn" aria-label="Instalar o app" title="Instalar o app">📲 Instalar</button>
+      <button id="btn-settings" class="icon-btn" aria-label="Ajustes" title="Ajustes">⚙</button>
+    </div>
   </header>
 
   <main class="main">
@@ -74,7 +81,37 @@
       </div>
     </section>
 
+
   </main>
+
+  <div class="settings-sheet" id="install-sheet" hidden>
+    <div class="sheet-backdrop" id="install-backdrop"></div>
+    <div class="sheet-content">
+      <h2>Instalar o Afinador Ponto Grave</h2>
+      <p class="install-note" style="margin:0 0 12px">Grátis. Fica com ícone na tela do celular e funciona sem internet depois da primeira vez.</p>
+      <button id="btn-install-now" class="primary-btn" style="margin:0 0 12px" hidden>📲 Instalar agora</button>
+      <div class="install-tabs" id="install-tabs">
+        <button data-os="android">Android</button><button data-os="iphone">iPhone</button><button data-os="pc">Computador</button>
+      </div>
+      <ol class="install-steps" data-os="android">
+        <li>Abra este site no <b>Chrome</b>.</li>
+        <li>Toque no menu <b>⋮</b> (canto de cima).</li>
+        <li>Escolha <b>Instalar app</b> ou <b>Adicionar à tela inicial</b>.</li>
+      </ol>
+      <ol class="install-steps" data-os="iphone" hidden>
+        <li>Abra este site no <b>Safari</b>.</li>
+        <li>Toque no botão <b>Compartilhar</b> (quadrado com a seta para cima).</li>
+        <li>Escolha <b>Adicionar à Tela de Início</b> e toque em <b>Adicionar</b>.</li>
+      </ol>
+      <ol class="install-steps" data-os="pc" hidden>
+        <li>Abra este site no <b>Chrome</b> ou no <b>Edge</b>.</li>
+        <li>Clique no ícone de <b>instalar</b> na barra de endereço (à direita).</li>
+        <li>Confirme em <b>Instalar</b>.</li>
+      </ol>
+      <p class="install-note">O afinador usa o microfone só enquanto está ligado. Nenhum som é gravado ou enviado.</p>
+      <button id="btn-close-install" class="primary-btn">Fechar</button>
+    </div>
+  </div>
 
   <div class="settings-sheet" id="settings-sheet" hidden>
     <div class="sheet-backdrop" id="sheet-backdrop"></div>

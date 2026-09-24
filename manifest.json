@@ -1,13 +1,13 @@
 {
-  "name": "Afinador & Ritmo",
-  "short_name": "Afinador",
-  "description": "Afinador cromático e metrônomo com ritmos de acompanhamento e mostrador de nota em tempo real.",
+  "name": "Afinador Ponto Grave",
+  "short_name": "Ponto Grave",
+  "description": "Afinador cromático para contrabaixo, metrônomo com ritmos de acompanhamento, escalas, modos e pentatônicas. Da Ponto Grave.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0f1115",
-  "theme_color": "#14161c",
+  "background_color": "#0E0C0A",
+  "theme_color": "#0E0C0A",
   "icons": [
     { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },

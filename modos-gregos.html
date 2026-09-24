@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Modos Gregos para Contrabaixo</title>
+<meta name="theme-color" content="#0E0C0A" />
+<meta name="description" content="Guia de estudo dos 7 modos gregos (Jônio, Dórico, Frígio, Lídio, Mixolídio, Eólio, Lócrio) para contrabaixo de 4 cordas, com 7 posições móveis por modo, referência em Lá (A), pronto para imprimir em A4." />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/modos-gregos.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="page-header">
+    <a href="index.html" class="back-link no-print" aria-label="Voltar">←</a>
+    <div class="page-header-title">
+      <h1>Modos Gregos / Contrabaixo 4 Cordas</h1>
+      <p>7 posições por modo · Referência em Lá (A) · Afinação padrão E-A-D-G</p>
+    </div>
+    <button id="btn-print" class="icon-btn no-print" aria-label="Imprimir" title="Imprimir">🖨️</button>
+  </header>
+
+  <main class="main">
+
+    <section class="card intro-card">
+      <h3>O que você vai tocar</h3>
+      <p>
+        Os 7 modos gregos nascem das mesmas 7 notas da escala maior, tocadas a partir de cada um
+        de seus graus. Aqui cada modo é mostrado com <strong>tônica fixa em Lá (A)</strong> — ou
+        seja, são 7 escalas diferentes (com notas diferentes), todas começando e terminando em A,
+        e não os 7 modos de uma única tonalidade de Dó.
+      </p>
+      <div id="overview-table-slot"></div>
+      <h3>Ir direto para o modo</h3>
+      <nav class="family-nav" id="mode-nav"></nav>
+    </section>
+
+    <section class="card intro-card">
+      <h3>Como ler os diagramas</h3>
+      <div class="legend-row">
+        <span class="swatch"><i class="legend-dot root"></i> Tônica (A)</span>
+        <span class="swatch"><i class="legend-dot"></i> Nota do modo</span>
+        <span class="swatch"><i class="legend-dot" style="background:none;border:2px solid var(--accent-2)"></i> Corda solta</span>
+        <span class="swatch"><i class="legend-badge">2</i> Dedo da mão esquerda</span>
+      </div>
+      <p style="margin-top:10px">
+        Número no círculo pequeno = dedo que pressiona a corda (1 indicador · 2 médio · 3 anelar ·
+        4 mínimo). Número embaixo do ponto = grau da escala (T = tônica). Números no rodapé do
+        diagrama = casas do braço. Cordas: G em cima, depois D, A e E embaixo.
+      </p>
+      <p>
+        <strong>4* = alongamento:</strong> avance uma casa a mais com o dedo 4 e retorne à posição
+        base ao trocar de corda. <strong>Corda solta:</strong> quando a posição começa na corda
+        solta (casa 0), toque sem pressionar e siga com o dedo 1 na casa seguinte.
+      </p>
+    </section>
+
+    <section class="card intro-card">
+      <h3>Como praticar e mudar o tom</h3>
+      <p>
+        Toque uma nota por vez, corda por corda: G → D → A → E (ou o caminho inverso), da esquerda
+        para a direita em cada corda. Comece devagar, com metrônomo a 60 bpm, e sempre resolva a
+        frase na tônica (A) para fixar o clima de cada modo no ouvido.
+      </p>
+      <p>
+        Compare modos que diferem por uma nota só tocando-os em sequência sobre a mesma tônica: Jônio
+        → Lídio (só a 4ª sobe meio tom), Jônio → Mixolídio (só a 7ª desce), Eólio → Dórico (só a 6ª
+        sobe) e Eólio → Frígio (só a 2ª desce). É a forma mais rápida de ouvir o que cada modo tem de
+        especial.
+      </p>
+      <p>
+        As 7 posições de cada modo percorrem o braço do zero até a 12ª casa e se repetem a partir
+        daí. Para transpor todo o guia para outra tônica, desloque todas as casas igualmente: Lá →
+        Si = +2 casas; Lá → Sol = -2 casas.
+      </p>
+    </section>
+
+    <div id="modes-container"></div>
+
+    <section class="card intro-card">
+      <h3>Referências</h3>
+      <p>
+        Fórmulas e nomenclatura dos modos: bibliografia padrão de harmonia funcional (modos da
+        escala maior). Para aprofundar o estudo, vale pesquisar aulas de "modos gregos no baixo" em
+        métodos como StudyBass (Andrew Pouska) e outros materiais de teoria aplicada ao contrabaixo.
+      </p>
+      <p style="margin-top:6px;font-size:0.76rem">
+        Impressão: A4, retrato, tamanho real (100%). Símbolos legíveis em preto e branco.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="page-footer no-print">
+    Consulta offline · parte do Afinador Ponto Grave ·
+    <a href="escalas.html">ver escalas por tônica movível</a> ·
+    <a href="campo-harmonico.html">mapa completo do braço + campo harmônico</a> ·
+    <a href="pentatonicas.html">pentatônicas e blues com blue note</a>
+  </footer>
+
+</div>
+
+<script src="js/modos-gregos.js"></script>
+</body>
+</html>

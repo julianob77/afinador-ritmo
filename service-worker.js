@@ -1,16 +1,30 @@
-const CACHE_NAME = "afinador-ritmo-v1";
+const CACHE_NAME = "afinador-pontograve-v7";
 const ASSETS = [
   "./",
   "./index.html",
+  "./escalas.html",
+  "./modos-gregos.html",
+  "./pentatonicas.html",
+  "./campo-harmonico.html",
   "./manifest.json",
   "./css/styles.css",
+  "./css/escalas.css",
+  "./css/modos-gregos.css",
+  "./css/pentatonicas.css",
+  "./css/campo-harmonico.css",
   "./js/sound-bank.js",
   "./js/rhythm-patterns.js",
   "./js/metronome-engine.js",
   "./js/pitch-detector.js",
   "./js/ui.js",
   "./js/app.js",
+  "./js/escalas.js",
+  "./js/modos-gregos.js",
+  "./js/pentatonicas.js",
+  "./js/campo-harmonico.js",
   "./icons/icon.svg",
+  "./icons/logo-fundo-escuro.svg",
+  "./icons/logo-fundo-claro.svg",
 ];
 
 self.addEventListener("install", (event) => {
@@ -30,6 +44,8 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  // Faixas de áudio: vêm direto da rede (arquivos grandes e pedidos em partes pelo player)
+  if (new URL(event.request.url).pathname.endsWith(".mp3")) return;
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Escala + Campo Harmônico Maior e Menor</title>
+<meta name="theme-color" content="#0E0C0A" />
+<meta name="description" content="Mapa completo do braço do contrabaixo com as escalas maior e menor naturais e o campo harmônico das 7 tonalidades naturais de cada modo, pronto para imprimir em A4." />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/campo-harmonico.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="page-header">
+    <a href="index.html" class="back-link no-print" aria-label="Voltar">←</a>
+    <div class="page-header-title">
+      <h1>Escala + Campo Harmônico Natural</h1>
+      <p>Mapa completo do braço · 4 cordas E-A-D-G · 7 tonalidades naturais</p>
+    </div>
+    <button id="btn-print" class="icon-btn no-print" aria-label="Imprimir" title="Imprimir">🖨️</button>
+  </header>
+
+  <main class="main">
+
+    <section class="card intro-card">
+      <div class="mode-toggle no-print" role="tablist" aria-label="Escolher modo">
+        <button type="button" class="mode-btn is-active" data-mode="major" role="tab" aria-selected="true">Maior Natural</button>
+        <button type="button" class="mode-btn" data-mode="minor" role="tab" aria-selected="false">Menor Natural</button>
+      </div>
+      <p class="formula-line" id="formula-text">Fórmula: T – T – ST – T – T – T – ST</p>
+      <p class="formula-line" id="field-formula-text">Campo harmônico: I – ii – iii – IV – V – vi – vii°</p>
+      <p>
+        Cada braço abaixo mostra <strong>todas</strong> as ocorrências das 7 notas da escala
+        (<span id="mode-name-text">maior</span>) daquela tonalidade, do traste 0 ao 15 — não é uma
+        posição/shape só, é o mapa completo. Abaixo de cada braço estão os 7 acordes do campo
+        harmônico daquela tonalidade, seguidos das digitações de cada acorde (só as notas que
+        compõem aquele acorde: fundamental, 3ª e 5ª).
+      </p>
+      <div class="color-legend">
+        <span><i class="legend-dot root"></i> Tônica (1ª)</span>
+        <span><i class="legend-dot third"></i> 3ª (define maior/menor)</span>
+        <span><i class="legend-dot other"></i> Demais graus (ou 5ª nos acordes)</span>
+      </div>
+    </section>
+
+    <div id="keys-container"></div>
+
+  </main>
+
+  <footer class="page-footer no-print">
+    Consulta offline · parte do Afinador Ponto Grave ·
+    <a href="campo-harmonico-offline.html">versão em arquivo único para salvar/enviar</a> ·
+    <a href="escalas.html">ver também as escalas por tônica movível</a> ·
+    <a href="modos-gregos.html">guia de posições dos modos gregos</a> ·
+    <a href="pentatonicas.html">pentatônicas e blues com blue note</a>
+  </footer>
+
+</div>
+
+<script src="js/campo-harmonico.js"></script>
+</body>
+</html>

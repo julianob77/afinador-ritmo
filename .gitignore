@@ -2,3 +2,9 @@ node_modules/
 android-twa/
 *.log
 .DS_Store
+
+# Conteúdo pago e material pessoal: nunca publicar
+livro-pentatonicas/
+estudos/
+escalas-offline full.html
+

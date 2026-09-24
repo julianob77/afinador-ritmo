@@ -1,11 +1,12 @@
 :root {
-  --bg: #f4f5f8;
-  --card-bg: #ffffff;
-  --text: #14161c;
-  --text-dim: #6b7280;
-  --accent: #ff6b4a;
-  --accent-2: #2dd4bf;
-  --border: #e5e7eb;
+  --bg: #F2ECE2;
+  --card-bg: #FBF8F2;
+  --text: #151210;
+  --text-dim: #6B6259;
+  --accent: #B8862F;
+  --accent-2: #E2B45E;
+  --on-accent: #151210;
+  --border: #E4DCCF;
   --danger: #ef4444;
   --ok: #22c55e;
   --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
@@ -13,11 +14,14 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #0f1115;
-  --card-bg: #1a1d24;
-  --text: #f4f5f7;
-  --text-dim: #9aa0ab;
-  --border: #2a2e37;
+  --bg: #0E0C0A;
+  --card-bg: #1A1714;
+  --text: #F2ECE2;
+  --text-dim: #A79D90;
+  --accent: #E2B45E;
+  --accent-2: #F2ECE2;
+  --on-accent: #151210;
+  --border: #2E2923;
   --shadow: 0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
   color-scheme: dark;
 }
@@ -45,12 +49,12 @@ body {
   padding: 8px 4px 16px;
 }
 
-.topbar h1 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
+.topbar h1 { margin: 0; line-height: 0; }
+.topbar .marca { height: 34px; width: auto; }
+.topbar .marca-claro { display: none; }
+:root[data-theme="light"] .topbar .marca-escuro { display: none; }
+:root[data-theme="light"] .topbar .marca-claro { display: inline; }
+.app-nome { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-top: 6px; line-height: 1; }
 
 .topbar .dot { color: var(--accent); }
 
@@ -64,6 +68,11 @@ body {
   border-radius: 10px;
 }
 .icon-btn:hover { background: var(--border); }
+
+a.icon-btn {
+  display: inline-block;
+  text-decoration: none;
+}
 
 .main {
   display: flex;
@@ -162,7 +171,7 @@ body {
   width: 100%;
   border: none;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font-size: 1rem;
   font-weight: 700;
   padding: 13px 16px;
@@ -280,7 +289,16 @@ body {
 .rhythm-chip.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
+}
+.rhythm-group {
+  grid-column: 1 / -1;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 6px 2px -2px;
 }
 
 .transport-row {
@@ -348,3 +366,18 @@ body {
   .note-name { font-size: 2.6rem; }
   .rhythm-select { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Instalar o app */
+.install-btn { font-size: 0.8rem; font-weight: 700; color: var(--on-accent); background: var(--accent); border: none; border-radius: 999px; padding: 7px 12px; cursor: pointer; }
+.install-steps { margin: 4px 0 8px; padding-left: 20px; font-size: 0.92rem; line-height: 1.5; }
+.install-steps li { margin-bottom: 8px; }
+.install-note { font-size: 0.8rem; color: var(--text-dim); margin: 6px 0 0; }
+.install-tabs { display: flex; gap: 8px; margin: 4px 0 12px; }
+.install-tabs button { flex: 1; border: 1px solid var(--border); background: var(--bg); color: var(--text); padding: 8px; border-radius: 10px; font-weight: 600; cursor: pointer; }
+.install-tabs button.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* Topo compacto: logo a esquerda, atalhos numa linha so */
+.topbar > div { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; }
+.topbar .icon-btn { font-size: 1.1rem; padding: 6px 6px; }
+.topbar .install-btn { margin: 0 4px; padding: 6px 10px; font-size: 0.75rem; white-space: nowrap; }
+@media (max-width: 380px) { .topbar .marca { height: 28px; } .topbar .icon-btn { padding: 6px 4px; } }

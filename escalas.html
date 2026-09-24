@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Escalas para Contrabaixo</title>
+<meta name="theme-color" content="#0E0C0A" />
+<meta name="description" content="Consulta rápida de escalas para contrabaixo de 4 cordas (E-A-D-G) com diagramas de braço para qualquer tônica." />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/escalas.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="page-header">
+    <a href="index.html" class="back-link no-print" aria-label="Voltar">←</a>
+    <div class="page-header-title">
+      <h1>Escalas para Contrabaixo</h1>
+      <p>4 cordas · afinação padrão E-A-D-G · posições movíveis</p>
+    </div>
+    <button id="btn-print" class="icon-btn no-print" aria-label="Imprimir" title="Imprimir">🖨️</button>
+  </header>
+
+  <main class="main">
+
+    <section class="card intro-card">
+      <h3>Como ler os diagramas</h3>
+      <p>
+        Cada braço abaixo mostra as 4 cordas do contrabaixo (G no topo, E embaixo) e os trastes 0
+        (corda solta) a 12 (oitava). Os pontos marcam as notas da escala; o ponto na cor de destaque
+        é a <strong>tônica</strong>. O desenho é <strong>movível</strong>: escolha a tônica desejada
+        abaixo e todos os diagramas se atualizam automaticamente, já que o formato de cada escala é
+        sempre o mesmo, só muda a casa em que ela começa.
+      </p>
+      <h3>Tônica</h3>
+      <div class="root-select" id="root-select"></div>
+      <h3>Ir direto para a família</h3>
+      <nav class="family-nav" id="family-nav"></nav>
+    </section>
+
+    <section class="card intro-card">
+      <h3>Análise rápida das famílias de escalas</h3>
+      <p>
+        <strong>Modos da escala maior</strong> — as 7 escalas que surgem tocando as mesmas 7 notas
+        da escala maior a partir de cada um de seus graus. Jônio (maior) e Eólio (menor natural)
+        são os mais usados como tonalidade; Dórico e Mixolídio dominam o funk, jazz e blues; Frígio,
+        Lídio e Lócrio aparecem mais como cor sobre um acorde específico do que como centro tonal.
+      </p>
+      <p>
+        <strong>Modos da menor melódica</strong> — a menor melódica é a menor natural com 6ª e 7ª
+        maiores; seus 7 modos são o vocabulário-padrão do jazz moderno, com destaque para o Lídio
+        dominante (sobre acordes 7#11) e a escala Alterada/Superlócrio (sobre dominantes alterados).
+      </p>
+      <p>
+        <strong>Modos da menor harmônica</strong> — a menor natural com a 7ª elevada, criando uma
+        tensão de dominante que a menor natural sozinha não tem. Seu modo mais famoso é o Frígio
+        dominante, usado em flamenco, música árabe/klezmer e metal.
+      </p>
+      <p>
+        <strong>Pentatônicas e blues</strong> — reduzem escalas de 7 notas a 5, removendo os graus
+        mais dissonantes. São a base de praticamente toda linha de baixo em rock, pop, funk e blues;
+        cada modo grego também tem sua própria versão pentatônica.
+      </p>
+      <p>
+        <strong>Escalas simétricas</strong> — cromática, tons inteiros, diminutas e aumentada se
+        repetem em padrões de intervalo iguais, por isso soam "sem tônica fixa" e têm transposição
+        limitada (poucas tonalidades diferentes possíveis).
+      </p>
+      <p>
+        <strong>Bebop</strong> — escalas de 7 notas com uma nota cromática de passagem a mais (8 no
+        total), pra que as notas do acorde caiam sempre nos tempos fortes ao improvisar em colcheias.
+      </p>
+      <p>
+        <strong>Exóticas, étnicas e regionais</strong> — escalas do folclore e da música regional do
+        mundo todo: nordestina, cigana/húngara, árabe/bizantina, persa, napolitana, japonesa,
+        indonésia e chinesa.
+      </p>
+    </section>
+
+    <div id="scales-container"></div>
+
+  </main>
+
+  <footer class="page-footer no-print">
+    Consulta offline · parte do Afinador Ponto Grave ·
+    <a href="escalas-offline.html">versão em arquivo único para salvar/enviar</a> ·
+    <a href="campo-harmonico.html">mapa completo do braço + campo harmônico</a> ·
+    <a href="modos-gregos.html">guia de posições dos modos gregos</a> ·
+    <a href="pentatonicas.html">pentatônicas e blues com blue note</a>
+  </footer>
+
+</div>
+
+<script src="js/escalas.js"></script>
+</body>
+</html>

@@ -122,6 +122,53 @@
     }
   }
 
+  // Link com ritmo e andamento: ?ritmo=rock&bpm=80&compasso=4 prepara o metrônomo (a pessoa só aperta ▶).
+  function applyUrlParams() {
+    const p = new URLSearchParams(location.search);
+    if (p.has("ritmo") || p.has("bpm")) {
+      if (p.has("compasso")) state.timeSigBeats = Math.max(2, Math.min(7, Number(p.get("compasso")) || 4));
+      if (p.has("ritmo") && RhythmPatterns.LIST.some((r) => r.id === p.get("ritmo"))) state.rhythmId = p.get("ritmo");
+      if (p.has("bpm")) setBpm(Number(p.get("bpm")) || state.bpm);
+      UI.populateTimeSignatures(TIME_SIGS, state.timeSigBeats);
+      selectRhythm(state.rhythmId);
+      document.querySelector(".rhythm-card").scrollIntoView({ block: "start" });
+    }
+  }
+
+  // ---- Instalar o app (PWA) ----
+  let installPrompt = null;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    installPrompt = e;
+    document.getElementById("btn-install-now").hidden = false;
+  });
+
+  function showInstallTab(os) {
+    document.querySelectorAll("#install-tabs button").forEach((b) => b.classList.toggle("active", b.dataset.os === os));
+    document.querySelectorAll(".install-steps").forEach((ol) => (ol.hidden = ol.dataset.os !== os));
+  }
+
+  function initInstall() {
+    const standalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+    const btn = document.getElementById("btn-install");
+    if (standalone) { btn.hidden = true; return; }
+    const ua = navigator.userAgent;
+    showInstallTab(/iPhone|iPad|iPod/i.test(ua) ? "iphone" : /Android/i.test(ua) ? "android" : "pc");
+    const sheet = document.getElementById("install-sheet");
+    btn.addEventListener("click", () => (sheet.hidden = false));
+    document.getElementById("btn-close-install").addEventListener("click", () => (sheet.hidden = true));
+    document.getElementById("install-backdrop").addEventListener("click", () => (sheet.hidden = true));
+    document.querySelectorAll("#install-tabs button").forEach((b) => b.addEventListener("click", () => showInstallTab(b.dataset.os)));
+    document.getElementById("btn-install-now").addEventListener("click", async () => {
+      if (!installPrompt) return;
+      installPrompt.prompt();
+      await installPrompt.userChoice;
+      installPrompt = null;
+      sheet.hidden = true;
+    });
+    window.addEventListener("appinstalled", () => { btn.hidden = true; sheet.hidden = true; });
+  }
+
   function loadSettings() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
@@ -194,6 +241,9 @@
       UI.applyTheme(state.darkTheme);
       saveSettings();
     });
+
+    applyUrlParams();
+    initInstall();
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

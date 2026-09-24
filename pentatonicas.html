@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Pentatônicas e Blues para Contrabaixo</title>
+<meta name="theme-color" content="#0E0C0A" />
+<meta name="description" content="Guia de estudo das pentatônicas maior e menor e das escalas de blues (com blue note) para contrabaixo de 4 cordas, com 5 posições móveis por escala, referência em Lá (A), pronto para imprimir em A4." />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/pentatonicas.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="page-header">
+    <a href="index.html" class="back-link no-print" aria-label="Voltar">←</a>
+    <div class="page-header-title">
+      <h1>Pentatônicas e Blues / Contrabaixo 4 Cordas</h1>
+      <p>5 posições por escala · Referência em Lá (A) · Afinação padrão E-A-D-G</p>
+    </div>
+    <button id="btn-print" class="icon-btn no-print" aria-label="Imprimir" title="Imprimir">🖨️</button>
+  </header>
+
+  <main class="main">
+
+    <section class="card intro-card">
+      <h3>O que você vai tocar</h3>
+      <p>
+        As pentatônicas reduzem a escala de 7 notas a 5, removendo os graus mais dissonantes (a 4ª
+        e a 7ª na maior; a 2ª e a 6ª na menor). As escalas de <strong>blues</strong> pegam essas
+        mesmas 5 notas e acrescentam uma 6ª nota de passagem, a <strong>blue note</strong>, criando
+        a tensão característica do gênero. Aqui cada escala é mostrada com
+        <strong>tônica fixa em Lá (A)</strong> em 5 posições móveis que cobrem o braço do zero até
+        a 12ª casa e se repetem a partir daí.
+      </p>
+      <div id="overview-table-slot"></div>
+      <h3>Ir direto para a escala</h3>
+      <nav class="family-nav" id="scale-nav"></nav>
+    </section>
+
+    <section class="card intro-card">
+      <h3>Como ler os diagramas</h3>
+      <div class="legend-row">
+        <span class="swatch"><i class="legend-dot root"></i> Tônica (A)</span>
+        <span class="swatch"><i class="legend-dot"></i> Nota da escala</span>
+        <span class="swatch"><i class="legend-dot blue"></i> Blue note</span>
+        <span class="swatch"><i class="legend-dot" style="background:none;border:2px solid var(--accent-2)"></i> Corda solta</span>
+        <span class="swatch"><i class="legend-badge">2</i> Dedo da mão esquerda</span>
+      </div>
+      <p style="margin-top:10px">
+        Número no círculo pequeno = dedo que pressiona a corda (1 indicador · 2 médio · 3 anelar ·
+        4 mínimo). Número embaixo do ponto = grau da escala (T = tônica). Números no rodapé do
+        diagrama = casas do braço. Cordas: G em cima, depois D, A e E embaixo.
+      </p>
+      <p>
+        <strong>4* = alongamento:</strong> avance uma casa a mais com o dedo 4 e retorne à posição
+        base ao trocar de corda. <strong>Corda solta:</strong> quando a posição começa na corda
+        solta (casa 0), toque sem pressionar e siga com o dedo 1 na casa seguinte.
+      </p>
+    </section>
+
+    <section class="card intro-card">
+      <h3>Como usar a blue note</h3>
+      <p>
+        A blue note (b5 na escala de blues menor, b3 na escala de blues maior) é uma nota de
+        <strong>passagem</strong>, não uma nota de chegada: use-a rápido, deslizando ou "puxando"
+        entre os dois graus vizinhos, e resolva sempre numa nota estável da pentatônica (a tônica,
+        a 3ª/b3ª ou a 5ª). Segurá-la como nota longa soa dissonante fora de contexto — o efeito
+        blues está no trânsito entre ela e a nota ao lado.
+      </p>
+    </section>
+
+    <section class="card intro-card">
+      <h3>Como praticar e mudar o tom</h3>
+      <p>
+        Toque uma nota por vez, corda por corda: G → D → A → E (ou o caminho inverso), da esquerda
+        para a direita em cada corda. Comece devagar, com metrônomo a 60 bpm, e sempre resolva a
+        frase na tônica (A) para fixar o clima de cada escala no ouvido.
+      </p>
+      <p>
+        As 5 posições de cada escala percorrem o braço do zero até a 12ª casa e se repetem a partir
+        daí. Para transpor todo o guia para outra tônica, desloque todas as casas igualmente: Lá →
+        Si = +2 casas; Lá → Sol = -2 casas.
+      </p>
+    </section>
+
+    <div id="scales-container"></div>
+
+  </main>
+
+  <footer class="page-footer no-print">
+    Consulta offline · parte do Afinador Ponto Grave ·
+    <a href="escalas.html">ver escalas por tônica movível</a> ·
+    <a href="modos-gregos.html">guia de posições dos modos gregos</a> ·
+    <a href="campo-harmonico.html">mapa completo do braço + campo harmônico</a>
+  </footer>
+
+</div>
+
+<script src="js/pentatonicas.js"></script>
+</body>
+</html>

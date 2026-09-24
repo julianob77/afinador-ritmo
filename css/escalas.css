@@ -1,0 +1,227 @@
+/* Página de consulta: Escalas para Contrabaixo (4 cordas, afinação padrão E-A-D-G) */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px 4px;
+}
+.page-header-title { flex: 1; }
+
+.back-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 6px 8px;
+  border-radius: 10px;
+  line-height: 1;
+}
+.back-link:hover { background: var(--border); }
+
+.page-header h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.page-header p {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.intro-card p {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.intro-card p:last-child { margin-bottom: 0; }
+.intro-card h3 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin: 14px 0 6px;
+}
+.intro-card h3:first-child { margin-top: 0; }
+
+/* Seletor de tônica */
+.root-select {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.root-btn {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  padding: 10px 4px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.root-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 18px 4px 2px;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 12px;
+}
+
+.family-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.family-link {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+.family-link:hover { background: var(--border); }
+.section-sub {
+  margin: 0 4px 8px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* Card de escala */
+.scale-card { padding: 16px; }
+.scale-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.scale-name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.scale-formula {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.scale-desc {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin: 4px 0 12px;
+  line-height: 1.4;
+}
+
+.scale-notes {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.note-chip {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-weight: 600;
+}
+.note-chip.is-root {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.fretboard-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.fretboard-svg {
+  display: block;
+  min-width: 560px;
+  width: 100%;
+  height: auto;
+}
+.fb-string { stroke: var(--border); stroke-width: 2; }
+.fb-fret { stroke: var(--border); stroke-width: 1.5; }
+.fb-fret.nut { stroke: var(--text); stroke-width: 4; }
+.fb-marker { fill: var(--border); opacity: 0.6; }
+.fb-fret-label { fill: var(--text-dim); font-size: 11px; font-family: -apple-system, sans-serif; }
+.fb-string-label { fill: var(--text-dim); font-size: 11px; font-weight: 700; font-family: -apple-system, sans-serif; }
+.fb-dot { fill: var(--accent-2); stroke: var(--card-bg); stroke-width: 2; }
+.fb-dot.is-root { fill: var(--accent); }
+.fb-dot-label { fill: #fff; font-size: 10px; font-weight: 700; text-anchor: middle; font-family: -apple-system, sans-serif; }
+
+footer.page-footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  padding: 20px 8px 8px;
+}
+footer.page-footer a { color: var(--accent); }
+
+/* ---------- Versão para impressão ---------- */
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #ffffff;
+    --card-bg: #ffffff;
+    --text: #14161c;
+    --text-dim: #4a4f58;
+    --border: #cfd3da;
+    --accent: #c9502e;
+    --accent-2: #0c7a6b;
+    --shadow: none;
+    color-scheme: light;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  body { background: #fff; }
+
+  .app { max-width: 100%; padding: 0; }
+
+  .no-print,
+  .root-btn:not(.active),
+  footer.page-footer {
+    display: none !important;
+  }
+
+  .root-select { grid-template-columns: none; display: block; }
+  .root-btn.active { display: inline-block; padding: 4px 14px; }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid var(--border);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .fretboard-wrap { overflow: visible; }
+  .fretboard-svg { min-width: 0; width: 100%; }
+
+  .fb-dot.is-root { stroke: #14161c; stroke-width: 2.5; }
+}

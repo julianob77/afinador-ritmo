@@ -184,7 +184,127 @@ const RhythmPatterns = (() => {
     }),
   };
 
-  const LIST = [simple, rock, popBallad, samba, bossaNova, baiao, reggae, shuffleBlues, valsa, funk];
+  // ---- Ritmos adicionados para os estilos do livro Cinco Notas ----
+  const soul = {
+    id: "soul",
+    name: "Soul/Motown",
+    beatsPerBar: 4,
+    subdivision: 4,
+    steps: buildSteps(16, {
+      0: [{ sound: "kick", vol: 1 }, { sound: "hihat", vol: 0.45 }],
+      2: [{ sound: "hihat", vol: 0.3 }],
+      4: [{ sound: "snare", vol: 0.85 }, { sound: "hihat", vol: 0.45 }, { sound: "tamborim", vol: 0.35 }],
+      6: [{ sound: "hihat", vol: 0.3 }],
+      7: [{ sound: "kick", vol: 0.6 }],
+      8: [{ sound: "kick", vol: 0.9 }, { sound: "hihat", vol: 0.45 }],
+      10: [{ sound: "hihat", vol: 0.3 }],
+      12: [{ sound: "snare", vol: 0.85 }, { sound: "hihat", vol: 0.45 }, { sound: "tamborim", vol: 0.35 }],
+      14: [{ sound: "hihat", vol: 0.3 }],
+      15: [{ sound: "kick", vol: 0.45 }],
+    }),
+  };
+
+  const worship = {
+    id: "worship",
+    name: "Gospel/Worship",
+    beatsPerBar: 4,
+    subdivision: 2,
+    steps: buildSteps(8, {
+      0: [{ sound: "kick", vol: 1 }, { sound: "hihat", vol: 0.35 }],
+      1: [{ sound: "hihat", vol: 0.2 }],
+      2: [{ sound: "snare", vol: 0.7 }, { sound: "hihat", vol: 0.35 }],
+      3: [{ sound: "kick", vol: 0.55 }, { sound: "hihat", vol: 0.2 }],
+      4: [{ sound: "kick", vol: 0.8 }, { sound: "hihat", vol: 0.35 }],
+      5: [{ sound: "hihat", vol: 0.2 }],
+      6: [{ sound: "snare", vol: 0.7 }, { sound: "hihat", vol: 0.35 }],
+      7: [{ sound: "hihat_open", vol: 0.3 }],
+    }),
+  };
+
+  const blues128 = {
+    id: "blues128",
+    name: "Blues 12/8",
+    beatsPerBar: 4,
+    subdivision: 3,
+    steps: buildSteps(12, {
+      0: [{ sound: "kick", vol: 1 }, { sound: "hihat", vol: 0.5 }],
+      1: [{ sound: "hihat", vol: 0.25 }],
+      2: [{ sound: "hihat", vol: 0.3 }],
+      3: [{ sound: "snare", vol: 0.8 }, { sound: "hihat", vol: 0.45 }],
+      4: [{ sound: "hihat", vol: 0.25 }],
+      5: [{ sound: "hihat", vol: 0.3 }],
+      6: [{ sound: "kick", vol: 0.85 }, { sound: "hihat", vol: 0.5 }],
+      7: [{ sound: "hihat", vol: 0.25 }],
+      8: [{ sound: "kick", vol: 0.45 }, { sound: "hihat", vol: 0.3 }],
+      9: [{ sound: "snare", vol: 0.8 }, { sound: "hihat", vol: 0.45 }],
+      10: [{ sound: "hihat", vol: 0.25 }],
+      11: [{ sound: "hihat", vol: 0.3 }],
+    }),
+  };
+
+  const swing = {
+    id: "swing",
+    name: "Swing/Jazz",
+    beatsPerBar: 4,
+    subdivision: 3,
+    steps: buildSteps(12, {
+      0: [{ sound: "ride", vol: 0.8 }, { sound: "kick", vol: 0.25 }],
+      3: [{ sound: "ride", vol: 0.9 }, { sound: "hihat", vol: 0.5 }, { sound: "kick", vol: 0.2 }],
+      5: [{ sound: "ride", vol: 0.5 }],
+      6: [{ sound: "ride", vol: 0.8 }, { sound: "kick", vol: 0.25 }],
+      9: [{ sound: "ride", vol: 0.9 }, { sound: "hihat", vol: 0.5 }, { sound: "kick", vol: 0.2 }],
+      11: [{ sound: "ride", vol: 0.5 }],
+    }),
+  };
+
+  const galope = {
+    id: "galope",
+    name: "Metal (galope)",
+    beatsPerBar: 4,
+    subdivision: 4,
+    steps: buildSteps(16, {
+      0: [{ sound: "kick", vol: 1 }, { sound: "hihat", vol: 0.5 }],
+      2: [{ sound: "kick", vol: 0.8 }],
+      3: [{ sound: "kick", vol: 0.8 }],
+      4: [{ sound: "snare", vol: 0.95 }, { sound: "kick", vol: 0.9 }, { sound: "hihat", vol: 0.5 }],
+      6: [{ sound: "kick", vol: 0.8 }],
+      7: [{ sound: "kick", vol: 0.8 }],
+      8: [{ sound: "kick", vol: 1 }, { sound: "hihat", vol: 0.5 }],
+      10: [{ sound: "kick", vol: 0.8 }],
+      11: [{ sound: "kick", vol: 0.8 }],
+      12: [{ sound: "snare", vol: 0.95 }, { sound: "kick", vol: 0.9 }, { sound: "hihat", vol: 0.5 }],
+      14: [{ sound: "kick", vol: 0.8 }],
+      15: [{ sound: "kick", vol: 0.8 }],
+    }),
+  };
+
+  const xote = {
+    id: "xote",
+    name: "Xote/Forró",
+    beatsPerBar: 2,
+    subdivision: 4,
+    steps: buildSteps(8, {
+      0: [{ sound: "surdo", vol: 1 }, { sound: "triangle", vol: 0.7 }],
+      1: [{ sound: "triangle_closed", vol: 0.5 }],
+      2: [{ sound: "triangle", vol: 0.5 }],
+      3: [{ sound: "surdo", vol: 0.55 }, { sound: "triangle_closed", vol: 0.5 }],
+      4: [{ sound: "rim", vol: 0.6 }, { sound: "triangle", vol: 0.7 }],
+      5: [{ sound: "triangle_closed", vol: 0.5 }],
+      6: [{ sound: "surdo", vol: 0.8 }, { sound: "triangle", vol: 0.5 }],
+      7: [{ sound: "triangle_closed", vol: 0.5 }],
+    }),
+  };
+
+  // Ordem na tela, agrupada por estilo
+  const GRUPOS = [
+    ["Metrônomo", [simple]],
+    ["Banda", [rock, popBallad, worship, soul, funk, galope, reggae]],
+    ["Blues e jazz", [shuffleBlues, blues128, swing]],
+    ["Brasil", [samba, bossaNova, baiao, xote]],
+    ["Outros", [valsa]],
+  ];
+  GRUPOS.forEach(([grupo, lista]) => lista.forEach((r) => (r.group = grupo)));
+  const LIST = GRUPOS.flatMap(([, lista]) => lista);
 
   function get(id) {
     return LIST.find((p) => p.id === id) || simple;

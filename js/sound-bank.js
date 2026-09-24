@@ -126,6 +126,34 @@ const SoundBank = (() => {
       node.start(time);
       node.stop(stopAt);
     },
+    ride: (time, vol) => {
+      // Prato de condução: brilho metálico curto + "sino"
+      const { node, gain, stopAt } = playNoise(time, vol * 0.35, 0.001, 0.32, "bandpass", 5200, 0.9);
+      node.connect(gain).connect(masterOut());
+      node.start(time);
+      node.stop(stopAt);
+      const bell = playTone(time, 3400, vol * 0.12, 0.001, 0.25, "sine");
+      bell.node.connect(bell.gain).connect(masterOut());
+      bell.node.start(time);
+      bell.node.stop(bell.stopAt);
+    },
+    triangle: (time, vol) => {
+      // Triângulo do forró: nota aguda com decaimento longo
+      const t1 = playTone(time, 4200, vol * 0.25, 0.001, 0.35, "sine");
+      t1.node.connect(t1.gain).connect(masterOut());
+      t1.node.start(time);
+      t1.node.stop(t1.stopAt);
+      const t2 = playTone(time, 6100, vol * 0.12, 0.001, 0.25, "sine");
+      t2.node.connect(t2.gain).connect(masterOut());
+      t2.node.start(time);
+      t2.node.stop(t2.stopAt);
+    },
+    triangle_closed: (time, vol) => {
+      const t1 = playTone(time, 4200, vol * 0.18, 0.001, 0.04, "sine");
+      t1.node.connect(t1.gain).connect(masterOut());
+      t1.node.start(time);
+      t1.node.stop(t1.stopAt);
+    },
     conga: (time, vol) => {
       const osc = ctx.createOscillator();
       osc.type = "sine";
